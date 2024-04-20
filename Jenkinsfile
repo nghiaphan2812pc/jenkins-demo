@@ -9,9 +9,9 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-                sh 'docker build -t nghiaphan2812pc/jenkins-demo:v1 .'
-                sh 'docker push -t nghiaphan2812pc/jenkins-demo:v1'
+                withDockerRegistry(credentialsId: 'docker-hub-real', url: 'https://index.docker.io/v1/') {
+                sh 'docker build -t jenkins-demo:v1 --build-arg REGISTRY_USERNAME=28121999 --build-arg REGISTRY_PASSWORD=Nghiaphan.2812 .'
+                sh 'docker push -t jenkins-demo:v1'
                 }
             }
         }
